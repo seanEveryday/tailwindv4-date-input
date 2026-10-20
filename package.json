@@ -1,0 +1,90 @@
+{
+  "name": "tailwindv4-date-input",
+  "version": "0.1.0",
+  "description": "A themeable, accessible date input (masked text field + popover calendar) for React, styled with Tailwind CSS v4. Ships default light and dark themes; fully restyleable via CSS theme tokens.",
+  "type": "module",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "date",
+    "datepicker",
+    "date-input",
+    "calendar",
+    "tailwind",
+    "tailwindcss",
+    "tailwind-v4",
+    "headlessui",
+    "dayjs",
+    "react-hook-form"
+  ],
+  "author": "Sean Daly",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seanEveryday/tailwindv4-date-input"
+  },
+  "sideEffects": [
+    "**/*.css",
+    "./src/dayjs.js",
+    "./dist/dayjs.js"
+  ],
+  "files": [
+    "dist",
+    "styles",
+    "src"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./rhf": {
+      "types": "./dist/rhf.d.ts",
+      "import": "./dist/rhf.js",
+      "require": "./dist/rhf.cjs"
+    },
+    "./preset": "./styles/preset.css",
+    "./styles.css": "./styles/preset.css"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && npm run build:types",
+    "build:types": "node ./scripts/copy-types.mjs",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18",
+    "tailwindcss": "^4"
+  },
+  "peerDependenciesMeta": {
+    "react-hook-form": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@headlessui/react": "^2",
+    "@heroicons/react": "^2.2.0",
+    "clsx": "^2.1.1",
+    "dayjs": "^1.11.19",
+    "react-text-mask": "^5.4.3"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@tailwindcss/vite": "^4.1.13",
+    "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^9.0.0",
+    "eslint-plugin-react": "^7.37.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "globals": "^15.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hook-form": "^7.6.0",
+    "tailwindcss": "^4.1.13",
+    "vite": "^7.0.0"
+  }
+}

@@ -1,0 +1,124 @@
+/*
+ * tailwindv4-date-input — theme preset
+ *
+ * Import once in your Tailwind v4 entry CSS, after `@import "tailwindcss";`:
+ *
+ *     @import "tailwindcss";
+ *     @import "tailwindv4-date-input/preset";
+ *     @source "../node_modules/tailwindv4-date-input/dist";
+ *
+ * The `@source` line lets Tailwind discover the token utility classes the
+ * component emits (bg-tdi-accent, text-tdi-text, …) so they are generated.
+ *
+ * Theming:
+ *   - Light is the default. Dark applies automatically from the OS
+ *     (prefers-color-scheme) AND when a `.dark` ancestor class is present
+ *     (class strategy). An explicit `.light` / `.dark` class always wins.
+ *   - Override any `--tdi-*` variable in your own `:root`, `.dark`, or a scoped
+ *     selector to restyle — accent, surfaces, text, radius, errors.
+ */
+
+/* ---- Light theme (default) ---- */
+:root {
+  --tdi-accent: #0d9488;        /* selected day / focus ring */
+  --tdi-accent-hover: #0f766e;
+  --tdi-accent-fg: #ffffff;     /* text on accent */
+  --tdi-accent-subtle: #f0fdfa; /* day hover background */
+
+  --tdi-surface: #ffffff;       /* calendar popover background */
+  --tdi-input-bg: #ffffff;      /* text field background */
+  --tdi-border: rgb(9 9 11 / 0.1);
+
+  --tdi-text: #09090b;
+  --tdi-text-muted: #71717a;    /* weekday labels, calendar icon */
+  --tdi-text-subtle: #a1a1aa;   /* days outside the current month */
+  --tdi-hover: #f4f4f5;         /* month-nav button hover */
+
+  --tdi-error: #dc2626;
+  --tdi-error-border: #fecaca;
+  --tdi-error-bg: #fef2f2;
+
+  --tdi-radius: 0.5rem;
+}
+
+/* ---- Dark theme — automatic via OS preference ---- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --tdi-accent: #14b8a6;
+    --tdi-accent-hover: #2dd4bf;
+    --tdi-accent-fg: #ffffff;
+    --tdi-accent-subtle: rgb(19 78 74 / 0.3);
+
+    --tdi-surface: #27272a;
+    --tdi-input-bg: rgb(255 255 255 / 0.05);
+    --tdi-border: rgb(255 255 255 / 0.1);
+
+    --tdi-text: #f4f4f5;
+    --tdi-text-muted: #a1a1aa;
+    --tdi-text-subtle: #71717a;
+    --tdi-hover: #3f3f46;
+
+    --tdi-error: #f87171;
+    --tdi-error-border: #991b1b;
+    --tdi-error-bg: rgb(127 29 29 / 0.2);
+  }
+}
+
+/* ---- Explicit class overrides (always win over OS preference) ---- */
+.light {
+  --tdi-accent: #0d9488;
+  --tdi-accent-hover: #0f766e;
+  --tdi-accent-fg: #ffffff;
+  --tdi-accent-subtle: #f0fdfa;
+  --tdi-surface: #ffffff;
+  --tdi-input-bg: #ffffff;
+  --tdi-border: rgb(9 9 11 / 0.1);
+  --tdi-text: #09090b;
+  --tdi-text-muted: #71717a;
+  --tdi-text-subtle: #a1a1aa;
+  --tdi-hover: #f4f4f5;
+  --tdi-error: #dc2626;
+  --tdi-error-border: #fecaca;
+  --tdi-error-bg: #fef2f2;
+}
+
+.dark {
+  --tdi-accent: #14b8a6;
+  --tdi-accent-hover: #2dd4bf;
+  --tdi-accent-fg: #ffffff;
+  --tdi-accent-subtle: rgb(19 78 74 / 0.3);
+  --tdi-surface: #27272a;
+  --tdi-input-bg: rgb(255 255 255 / 0.05);
+  --tdi-border: rgb(255 255 255 / 0.1);
+  --tdi-text: #f4f4f5;
+  --tdi-text-muted: #a1a1aa;
+  --tdi-text-subtle: #71717a;
+  --tdi-hover: #3f3f46;
+  --tdi-error: #f87171;
+  --tdi-error-border: #991b1b;
+  --tdi-error-bg: rgb(127 29 29 / 0.2);
+}
+
+/*
+ * Register the tokens with Tailwind so `bg-tdi-accent`, `text-tdi-text`,
+ * `rounded-tdi`, etc. exist. `inline` makes the utilities reference the
+ * `--tdi-*` variables above, so OS-preference and `.dark`/`.light` overrides
+ * flow through automatically.
+ */
+@theme inline {
+  --color-tdi-accent: var(--tdi-accent);
+  --color-tdi-accent-hover: var(--tdi-accent-hover);
+  --color-tdi-accent-fg: var(--tdi-accent-fg);
+  --color-tdi-accent-subtle: var(--tdi-accent-subtle);
+  --color-tdi-surface: var(--tdi-surface);
+  --color-tdi-input-bg: var(--tdi-input-bg);
+  --color-tdi-border: var(--tdi-border);
+  --color-tdi-text: var(--tdi-text);
+  --color-tdi-text-muted: var(--tdi-text-muted);
+  --color-tdi-text-subtle: var(--tdi-text-subtle);
+  --color-tdi-hover: var(--tdi-hover);
+  --color-tdi-error: var(--tdi-error);
+  --color-tdi-error-border: var(--tdi-error-border);
+  --color-tdi-error-bg: var(--tdi-error-bg);
+  --radius-tdi: var(--tdi-radius);
+}

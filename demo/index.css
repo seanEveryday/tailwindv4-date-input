@@ -1,0 +1,21 @@
+@import "tailwindcss";
+@import "../styles/preset.css";
+
+/* Scan the component source so its token utility classes get generated. */
+@source "../src";
+
+html,
+body {
+  margin: 0;
+  background: var(--tdi-input-bg);
+  color: var(--tdi-text);
+  font-family: ui-sans-serif, system-ui, sans-serif;
+}
+
+/* The custom-theme card below overrides tokens in a scoped selector. */
+.brand-theme {
+  --tdi-accent: #7c3aed;
+  --tdi-accent-hover: #6d28d9;
+  --tdi-accent-subtle: #f5f3ff;
+  --tdi-radius: 1rem;
+}
